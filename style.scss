@@ -1,0 +1,326 @@
+* {
+    box-sizing: border-box; // Correct value for box-sizing
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.w {
+    width: min(90%, 55rem);
+}
+
+
+.order-1 {
+    order: 1;
+}
+
+.order-2 {
+    order: 2;
+}
+
+
+
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .8)), url('./assets/netflix-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40rem; // Base height
+    position: relative;
+
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1rem 0;
+
+        ul {
+            li {
+                list-style: none;
+                font-size: clamp(2vw, 5rem, 1rem);
+
+                img {
+                    width: 10rem;
+                }
+
+                select {
+                    padding: .5rem 1.5rem;
+                    color: #fff;
+                    background: rgba(0, 0, 0, .5);
+                    border-radius: .3rem;
+
+                    option {
+                        color: black;
+                        background: #fff;
+                    }
+                }
+
+
+                button {
+                    color: #fff;
+                    background: red;
+                    border: 1px solid red;
+                    border-radius: .3rem;
+                    text-transform: capitalize;
+                    font-weight: bold;
+                    padding: .5rem 1rem;
+                }
+            }
+
+            &:nth-of-type(2) {
+                display: flex;
+                gap: 1.5rem;
+            }
+        }
+    }
+
+    .landing-page {
+        width: min(90%, 55rem);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+        line-height: 2rem;
+        text-align: center;
+        font-size: clamp(2vw, 5rem, 2rem);
+
+        h1 {
+            font-size: clamp(3.5vw, 2rem, 5rem);
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .text {
+            line-height: 4.5rem;
+            font-size: clamp(2vw, 5rem, 1.1rem);
+        }
+
+        .no-line {
+            line-height: 2rem;
+        }
+
+
+        form {
+            input {
+                padding: 1rem 8rem 1rem 1rem;
+                background: transparent;
+                border: 1px solid #fff;
+                border-radius: .3rem;
+                color: #fff;
+                margin-bottom: 1rem;
+            }
+
+            input::placeholder {
+                color: #fff;
+            }
+
+            button {
+                color: #fff;
+                background: red;
+                border: 1px solid red;
+                border-radius: .3rem;
+                text-transform: capitalize;
+                font-weight: bold;
+                padding: 1rem 2rem;
+            }
+        }
+    }
+}
+
+
+.ads {
+    color: #fff;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 0;
+    border-top: 7px solid #272727;
+    border-bottom: 7px solid #272727;
+
+    .ads-box {
+
+        h1 {
+            font-size: clamp(2vw, 3rem, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: clamp(2vw, 3rem, 1rem);
+        }
+
+        .only-one {
+            width: min(90%, 26rem);
+        }
+    }
+}
+
+
+.faq{
+    flex-direction: column;
+    gap: 2rem;
+
+    h1{
+        font-size: clamp(3.5vw, 1.5rem, 4rem);
+    }
+
+    .faq-box{
+        
+        details{
+            position: relative;
+            font-size: clamp(2vw, 3rem, 1.2rem);
+            word-spacing: .5px;
+              transition: rotate 2s;
+
+            summary{
+                background: #272727;
+                padding: 2rem 1.5rem;
+                list-style: none;
+
+                &::before{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    content: '+';
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 2rem 1.5rem;
+                    font-size: clamp(2vw, 3rem, 1rem);
+                    transition: transform .7s;
+                }
+            }
+            
+            &[open] summary::before{
+                transform: rotate(120deg);
+            }
+
+            p{
+                background: #272727;
+                padding: 2rem 1.5rem;
+                border-top: 1.5px solid black;
+                // animation: textAnimate .7s 1 linear forwards;
+                transition: transform .7s;
+
+                &::selection{
+                    transition: all ease-in-out 1s;
+                    background: red;
+                }
+                
+            }
+
+        }
+    }
+}
+
+
+
+@keyframes textAnimate{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+// Media query for larger screens
+@media (max-width: 955px) {
+
+    .order-1 {
+        order: 2;
+    }
+
+    .order-2 {
+        order: 1;
+    }
+
+
+    header {
+        max-height: 30rem; // Double the height for larger screens
+
+
+
+        nav {
+
+            ul {
+
+                li {
+                    img {
+                        width: 6rem;
+                    }
+
+                    select {
+                        padding: .4rem .5rem;
+                        option {
+                           
+                        }
+                    }
+
+                    button {
+                        padding: .4rem 1rem;
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    display: flex;
+                    gap: .5rem;
+                }
+            }
+        }
+
+        .landing-page {
+            transform: translate(-50%, 0%);
+            padding-bottom: 2.5rem;
+
+            .text {
+                line-height: 3rem;
+            }
+        }
+
+
+    }
+
+
+
+    .ads {
+        padding: 3rem 0;
+        border-top: 7px solid #272727;
+        border-bottom: 7px solid #272727;
+
+        .ads-box {
+            flex-direction: column;
+            text-align: center;
+
+            h1 {
+                font-size: clamp(2vw, 2rem, 4rem);
+                margin-bottom: 2rem;
+            }
+
+            p {
+                font-size: clamp(2vw, 3rem, 1.2rem);
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
