@@ -9,6 +9,13 @@ body {
   color: #fff;
   scroll-behavior: smooth;
 }
+body::after {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  content: url("https://wakatime.com/badge/user/018cbabe-18bf-43b4-b61b-d0c927841305/project/018d6ddd-a71c-4795-a5f9-ca2298d8407f.svg");
+  padding: 1rem;
+}
 
 .flex {
   display: flex;
